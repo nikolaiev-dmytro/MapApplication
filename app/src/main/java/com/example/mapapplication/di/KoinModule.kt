@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit
 val appModule = module {
     viewModel { MainViewModel(get(), get()) }
 
-    single { PlacesRepository(get()) }
+    single { PlacesRepository(androidContext(),get()) }
     single { createOkkHttpClient() }
     single { LocationRepository(androidContext()) }
     single { createWebService<PlacesApiService>(get(), PlacesApiService.BASE_URL) }
