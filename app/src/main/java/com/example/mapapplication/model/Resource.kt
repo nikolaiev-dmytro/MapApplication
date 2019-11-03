@@ -1,7 +1,7 @@
 package com.example.mapapplication.model
 
 class Resource<T> {
-    var status: Status = Status.LOADING
+    var status: Status = Status.SUCCESS
     var data: T? = null
     var message: String? = null
 

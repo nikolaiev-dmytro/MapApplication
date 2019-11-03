@@ -4,8 +4,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:gravity="center"
     android:background="@color/white"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -28,12 +28,11 @@
         android:textStyle="italic"
         tools:text="fsjhdkfsdkfh" />
 
-    <Button
-        android:id="@+id/direction_button"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Click this window to show Direction"
         android:textColor="@color/colorAccent"
         android:textSize="14sp"
-        android:textStyle="normal"
-        android:text="Get Direction" />
+        android:textStyle="normal" />
 </LinearLayout>

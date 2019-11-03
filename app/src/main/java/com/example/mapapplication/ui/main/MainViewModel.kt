@@ -19,6 +19,11 @@ class MainViewModel(
         locationRepository.locationPermissionListener
     private var placesData: MutableLiveData<Resource<List<Place>>>? = null
 
+    private val routesData = MutableLiveData<Resource<List<LatLng>>>()
+
+    fun getRoutesDataObserver(): LiveData<Resource<List<LatLng>>> {
+        return routesData
+    }
 
     fun getPlacesDataObserver(): LiveData<Resource<List<Place>>> {
         if (placesData == null) {
@@ -38,7 +43,15 @@ class MainViewModel(
         }
     }
 
-    fun getDirectionButtonClicked(source: LatLng, dest: LatLng) {
+    fun getDirectionButtonClicked(dest: LatLng) {
+        val source = LatLng(
+            locationRepository.getLastKnownLocation()?.latitude ?: 0.0,
+            locationRepository.getLastKnownLocation()?.longitude ?: 0.0
+        )
+        placesRepository.getDirection(source, dest, routesData)
+    }
 
+    fun getLastKnownLocation(): Location? {
+        return locationRepository.getLastKnownLocation()
     }
 }
